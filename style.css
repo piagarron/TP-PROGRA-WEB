@@ -1,0 +1,28 @@
+.menu-icono { 
+    width: 32px; 
+    height: 32px; 
+    cursor: pointer;
+  }
+  
+  #img-carrito {
+    width: 24px;     
+    height: 24px;    
+    display: inline-block;
+  }
+  
+  .menu-icono {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.8;   /* ← Aumentá o bajá hasta que tenga el mismo grosor que la bolsa */
+    stroke: #000;         /* color del trazo */
+  }
+  
+
+
+
+
+
+
+
+  
+  
