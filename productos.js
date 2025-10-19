@@ -2,22 +2,21 @@
 // CARRITO DE COMPRAS - PÁGINAS DE PRODUCTOS
 // ============================================
 
-// Variable global del carrito
-let carrito = [];
+// Cargar carrito desde localStorage
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 // Esperar a que cargue todo el HTML
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Página de productos cargada');
     iniciarApp();
     crearBadgeCarrito();
+    mostrarCarrito();
 });
 
 function iniciarApp() {
-    // Obtener todos los botones "Agregar al carrito"
     const botonesAgregar = document.querySelectorAll('.agregar-carrito');
     console.log('Botones encontrados:', botonesAgregar.length);
     
-    // Agregar evento click a cada botón
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', function(e) {
             e.preventDefault();
@@ -25,7 +24,6 @@ function iniciarApp() {
         });
     });
     
-    // Botón vaciar carrito
     const btnVaciar = document.querySelector('#vaciar-carrito');
     if (btnVaciar) {
         btnVaciar.addEventListener('click', function(e) {
@@ -34,7 +32,6 @@ function iniciarApp() {
         });
     }
     
-    // Evento para eliminar productos del carrito
     const tbody = document.querySelector('#lista-carrito tbody');
     if (tbody) {
         tbody.addEventListener('click', function(e) {
@@ -46,12 +43,12 @@ function iniciarApp() {
     }
 }
 
-// ============================================
-// CREAR BADGE/CONTADOR EN EL CARRITO
-// ============================================
+function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
 function crearBadgeCarrito() {
     const imgCarrito = document.querySelector('#img-carrito');
-    
     if (!imgCarrito) return;
     
     let badge = document.querySelector('#carrito-badge');
@@ -86,7 +83,6 @@ function crearBadgeCarrito() {
 
 function actualizarBadgeCarrito() {
     const badge = document.querySelector('#carrito-badge');
-    
     if (!badge) return;
     
     const totalProductos = obtenerCantidadTotal();
@@ -99,9 +95,6 @@ function actualizarBadgeCarrito() {
     }
 }
 
-// ============================================
-// MOSTRAR NOTIFICACIÓN
-// ============================================
 function mostrarNotificacion(mensaje, tipo = 'success') {
     const notificacion = document.createElement('div');
     notificacion.className = 'notificacion-carrito';
@@ -167,9 +160,6 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     }, 3000);
 }
 
-// ============================================
-// CREATE - AGREGAR PRODUCTO
-// ============================================
 function agregarAlCarrito(e) {
     const producto = e.target.parentElement.parentElement;
     
@@ -190,28 +180,25 @@ function agregarAlCarrito(e) {
             }
             return prod;
         });
-        mostrarNotificacion('¡Producto agregado al carrito con éxito!', 'success');
+        mostrarNotificacion('¡Cantidad actualizada!', 'success');
     } else {
         carrito.push(infoProducto);
-        mostrarNotificacion('¡Producto agregado al carrito con éxito!', 'success');
+        mostrarNotificacion('¡Producto agregado al carrito!', 'success');
     }
     
+    guardarCarrito();
     mostrarCarrito();
     actualizarBadgeCarrito();
 }
 
-// ============================================
-// READ - MOSTRAR CARRITO
-// ============================================
 function mostrarCarrito() {
     const tbody = document.querySelector('#lista-carrito tbody');
-    
     if (!tbody) return;
     
     tbody.innerHTML = '';
     
     if (carrito.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:20px; color:#999;">Carrito vacío</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:#999;">Carrito vacío</td></tr>';
         return;
     }
     
@@ -234,15 +221,12 @@ function mostrarCarrito() {
     const total = calcularTotal();
     
     totalRow.innerHTML = `
-        <td colspan="2" style="text-align:right; padding:15px;">TOTAL:</td>
+        <td colspan="3" style="text-align:right; padding:15px;">TOTAL:</td>
         <td colspan="2" style="color:#2C2C2C; font-size:18px; padding:15px;">$${total.toLocaleString('es-AR')}</td>
     `;
     tbody.appendChild(totalRow);
 }
 
-// ============================================
-// UPDATE - CALCULAR TOTAL
-// ============================================
 function calcularTotal() {
     let total = 0;
     
@@ -255,9 +239,6 @@ function calcularTotal() {
     return total;
 }
 
-// ============================================
-// DELETE - ELIMINAR PRODUCTO
-// ============================================
 function eliminarProducto(e) {
     const id = e.target.getAttribute('data-id');
     const productoEliminado = carrito.find(prod => prod.id === id);
@@ -265,16 +246,14 @@ function eliminarProducto(e) {
     carrito = carrito.filter(producto => producto.id !== id);
     
     if (productoEliminado) {
-        mostrarNotificacion('¡Producto eliminado del carrito!', 'error');
+        mostrarNotificacion('¡Producto eliminado!', 'error');
     }
     
+    guardarCarrito();
     mostrarCarrito();
     actualizarBadgeCarrito();
 }
 
-// ============================================
-// DELETE - VACIAR CARRITO
-// ============================================
 function vaciarCarrito() {
     if (carrito.length === 0) {
         mostrarNotificacion('¡El carrito ya está vacío!', 'info');
@@ -282,23 +261,18 @@ function vaciarCarrito() {
     }
     
     carrito = [];
+    guardarCarrito();
     mostrarCarrito();
     actualizarBadgeCarrito();
-    mostrarNotificacion('¡Carrito vaciado con éxito!', 'success');
+    mostrarNotificacion('¡Carrito vaciado!', 'success');
 }
 
-// ============================================
-// FUNCIONES ÚTILES
-// ============================================
 function obtenerCantidadTotal() {
     return carrito.reduce((total, producto) => total + producto.cantidad, 0);
 }
 
 console.log('📦 Sistema de Carrito para productos cargado');
 
-// ============================================
-// MENÚ STICKY AL HACER SCROLL
-// ============================================
 window.addEventListener('scroll', function() {
     const menu = document.querySelector('.menu');
     if (window.scrollY > 100) {
