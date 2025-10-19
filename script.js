@@ -8,8 +8,14 @@ let carrito = [];
 // Esperar a que cargue todo el HTML
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Página cargada');
-    iniciarApp();
-    crearBadgeCarrito(); // Crear contador de productos
+    
+    // Pequeño delay para asegurar que todo el DOM esté listo
+    setTimeout(() => {
+        iniciarApp();
+        crearBadgeCarrito(); // Crear contador de productos
+        ocultarProductos(); // Ocultar productos al inicio
+        configurarFiltros(); // Configurar filtros de categorías
+    }, 100);
 });
 
 function iniciarApp() {
@@ -48,6 +54,111 @@ function iniciarApp() {
 }
 
 // ============================================
+// OCULTAR PRODUCTOS AL INICIO
+// ============================================
+function ocultarProductos() {
+    const seccionProductos = document.querySelector('#lista-1');
+    if (seccionProductos) {
+        seccionProductos.style.display = 'none';
+        console.log('✅ Productos ocultos al inicio');
+    } else {
+        console.error('❌ No se encontró la sección #lista-1');
+    }
+}
+
+// ============================================
+// FILTROS POR CATEGORÍA
+// ============================================
+function configurarFiltros() {
+    const botonesCategorias = document.querySelectorAll('.btn-categoria');
+    console.log('🔍 Botones de categoría encontrados:', botonesCategorias.length);
+    
+    if (botonesCategorias.length === 0) {
+        console.error('❌ No se encontraron botones con clase .btn-categoria');
+    }
+    
+    botonesCategorias.forEach(boton => {
+        boton.addEventListener('click', function(e) {
+            // Si es un enlace <a>, prevenir comportamiento por defecto
+            if (this.tagName === 'A') {
+                e.preventDefault();
+            }
+            
+            const categoria = this.getAttribute('data-categoria');
+            console.log('👆 Click en categoría:', categoria);
+            mostrarProductosPorCategoria(categoria);
+            
+            // Scroll suave a productos con un pequeño delay para asegurar que se muestre
+            setTimeout(() => {
+                const seccionProductos = document.querySelector('#lista-1');
+                if (seccionProductos) {
+                    console.log('📜 Haciendo scroll a productos');
+                    seccionProductos.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    console.error('❌ No se encontró #lista-1 para hacer scroll');
+                }
+            }, 100);
+        });
+    });
+}
+
+function mostrarProductosPorCategoria(categoria) {
+    console.log('🎯 Filtrando productos por:', categoria);
+    
+    const seccionProductos = document.querySelector('#lista-1');
+    const todosLosProductos = document.querySelectorAll('.product');
+    
+    console.log('📦 Total de productos encontrados:', todosLosProductos.length);
+    
+    // Mostrar la sección de productos
+    if (seccionProductos) {
+        seccionProductos.style.display = 'block';
+        console.log('✅ Sección de productos mostrada');
+    } else {
+        console.error('❌ No se encontró la sección #lista-1');
+        return;
+    }
+    
+    let productosVisibles = 0;
+    
+    // Filtrar productos por categoría
+    todosLosProductos.forEach(producto => {
+        const categoriaProducto = producto.getAttribute('data-categoria');
+        
+        if (categoria === 'todos' || categoriaProducto === categoria) {
+            producto.style.display = 'block';
+            productosVisibles++;
+        } else {
+            producto.style.display = 'none';
+        }
+    });
+    
+    console.log('✅ Productos visibles:', productosVisibles);
+    
+    // Actualizar título de productos
+    const tituloProductos = document.querySelector('#lista-1 h2');
+    if (tituloProductos) {
+        switch(categoria) {
+            case 'canastos':
+                tituloProductos.textContent = 'Canastos';
+                break;
+            case 'arreglos':
+                tituloProductos.textContent = 'Arreglos';
+                break;
+            case 'carteras':
+                tituloProductos.textContent = 'Carteras';
+                break;
+            default:
+                tituloProductos.textContent = 'Productos';
+        }
+        console.log('✅ Título actualizado a:', tituloProductos.textContent);
+    }
+}
+
+// ============================================
 // CREAR BADGE/CONTADOR EN EL CARRITO
 // ============================================
 function crearBadgeCarrito() {
@@ -66,7 +177,7 @@ function crearBadgeCarrito() {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #ff4757;
+            background: #B88B93;
             color: white;
             border-radius: 50%;
             width: 22px;
@@ -118,9 +229,9 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     
     // Estilos según el tipo
     const colores = {
-        success: '#10b981',
-        error: '#ef4444',
-        info: '#3b82f6'
+        success: '#E8D5D8',
+        error: '#C4A4A8',
+        info: '#DCD5E0'
     };
     
     notificacion.style.cssText = `
@@ -128,7 +239,7 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
         top: 20px;
         right: 20px;
         background: ${colores[tipo]};
-        color: white;
+        color: #2C2C2C;
         padding: 15px 25px;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -262,21 +373,21 @@ function mostrarCarrito() {
             <td><img src="${producto.imagen}" width="80"></td>
             <td>${producto.titulo}</td>
             <td>${producto.precio} x ${producto.cantidad}</td>
-            <td><a href="#" class="borrar-producto" data-id="${producto.id}" style="color:red; font-weight:bold; text-decoration:none; font-size:18px;">✕</a></td>
+            <td><a href="#" class="borrar-producto" data-id="${producto.id}" style="color:#C4A4A8; font-weight:bold; text-decoration:none; font-size:18px;">✕</a></td>
         `;
         tbody.appendChild(row);
     });
     
     // Agregar fila del total
     const totalRow = document.createElement('tr');
-    totalRow.style.backgroundColor = '#f0f0f0';
+    totalRow.style.backgroundColor = '#F5E8E8';
     totalRow.style.fontWeight = 'bold';
     
     const total = calcularTotal();
     
     totalRow.innerHTML = `
         <td colspan="2" style="text-align:right; padding:15px;">TOTAL:</td>
-        <td colspan="2" style="color:#d97d54; font-size:18px; padding:15px;">$${total.toFixed(2)}</td>
+        <td colspan="2" style="color:#2C2C2C; font-size:18px; padding:15px;">$${total.toLocaleString('es-AR')}</td>
     `;
     tbody.appendChild(totalRow);
 }
@@ -288,8 +399,9 @@ function calcularTotal() {
     let total = 0;
     
     carrito.forEach(producto => {
-        // Extraer el número del precio (ej: "$200" -> 200)
-        const precio = parseFloat(producto.precio.replace('$', '').replace(',', ''));
+        // Extraer el número del precio (ej: "$15.000" -> 15000)
+        const precioLimpio = producto.precio.replace(/\$|\.|\s/g, '');
+        const precio = parseFloat(precioLimpio);
         total += precio * producto.cantidad;
     });
     
@@ -366,8 +478,4 @@ function tieneProductos() {
 }
 
 console.log('📦 Sistema de Carrito CRUD cargado correctamente');
-console.log('Operaciones disponibles:');
-console.log('✅ CREATE: agregarAlCarrito()');
-console.log('✅ READ: mostrarCarrito()');
-console.log('✅ UPDATE: calcularTotal()');
-console.log('✅ DELETE: eliminarProducto(), vaciarCarrito()');
+console.log('✅ Filtros por categoría activados');

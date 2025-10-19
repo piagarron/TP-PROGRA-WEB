@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet" href = "style.css">
+    <title>MAB Deco</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class = "header">
-        <div class = "menu container">
-            <a href = "#" class = "logo">Logo</a>
-            <input type = "checkbox" id = "menu">
-            <label for = "menu">
-                <img src="FOTOS/menu.svg" class = "menu-icono">
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">Mab Deco</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="FOTOS/menu.svg" class="menu-icono">
             </label>
 
-            <nav class ="navbar">
+            <nav class="navbar">
                 <ul>
-                    <li><a href = "#">Inicio</a></li>
-                    <li><a href = "#">Productos</a></li>
-                    <li><a href = "#">Manifiesto MAB</a></li>
-                    <li><a href = "#">Contacto</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#ofert-section">Categorías</a></li>
+                    <li><a href="#">Manifiesto MAB</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
             <div>
                 <ul>
-                    <li class = "submenu"> 
-                        <img src = "FOTOS/shopping-bag.svg" id = "img-carrito">
-                        <div id = "carrito">
-                            <table id = "lista-carrito">
+                    <li class="submenu"> 
+                        <img src="FOTOS/shopping-bag.svg" id="img-carrito">
+                        <div id="carrito">
+                            <table id="lista-carrito">
                                 <thead>
                                     <tr>
                                         <th>Imagen</th>
@@ -39,402 +39,375 @@
                                 </thead>
                                 <tbody></tbody>
                             </table>
-                            <a href="#" id ="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
                         </div>
-
                     </li>
                 </ul>
             </div>
-
         </div>
 
-
-        <div class = "header-content container">
-            <div class = "header-img">
-                <img src = "FOTOS/m.HEIC" alt = "">
+        <div class="header-content container">
+            <div class="header-img">
+                <img src="FOTOS/m.HEIC" alt="">
             </div>
-            <div class = "header-txt">
+            <div class="header-txt">
                 <h1>Ofertas Especiales</h1>
                 <p>Estrena las mejores prendas</p>
-                <a href="#" class="btn-1">Informacion</a>
+                <a href="#ofert-section" class="btn-1">Información</a>
             </div>
         </div>
     </header>
 
-    <section class = "ofert container">
-        <div class = "ofert-1">
-            <div class = "ofert-img">
-                <img src = "FOTOS/canastogrande.jpg" alt = "">  
+    <section class="ofert container" id="ofert-section">
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="FOTOS/canastogrande.jpg" alt="">  
             </div>
-            <div class = "ofert-txt">
+            <div class="ofert-txt">
                 <h3>CANASTOS</h3>
-                <a href="#" class = "btn-2">Informacion</a>
+                <input type="button" value="Más" class="btn-2" onclick="window.location.href='canastos.html'">
             </div>
         </div>
-
-        <div class = "ofert-1">
-            <div class = "ofert-img">
-                <img src = "FOTOS/nav20232.HEIC" alt = "">  
+    
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="FOTOS/nav20232.HEIC" alt="">  
             </div>
-            <div class = "ofert-txt">
+            <div class="ofert-txt">
                 <h3>ARREGLOS</h3>
-                <a href="#" class = "btn-2">Informacion</a>
+                <input type="button" value="Más" class="btn-2" onclick="window.location.href='arreglos.html'">
             </div>
         </div>
-
-        <div class = "ofert-1">
-            <div class = "ofert-img">
-                <img src = "FOTOS/carterita.jpg" alt = "">  
+    
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="FOTOS/carterita.jpg" alt="">  
             </div>
-            <div class = "ofert-txt">
+            <div class="ofert-txt">
                 <h3>CARTERAS</h3>
-                <a href="#" class = "btn-2">Informacion</a>
+                <input type="button" value="Más" class="btn-2" onclick="window.location.href='carteras.html'">
             </div>
         </div>
     </section>
 
-    <main class = "products container" id="lista-1">
+    <main class="products container" id="lista-1">
         <h2>Productos</h2>
-        <div class = "product-content">
-            <div class = "product">
-                <img src = "FOTOS/canastitaflores.jpg">
-                <div class = "product-txt">
+        <div class="product-content">
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastitaflores.jpg">
+                <div class="product-txt">
                     <h3>Canasto Fresh</h3>
                     <p>Tamaño grande. Con flores multicolor</p>
                     <p class="precio">$15.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
                 </div>
             </div>
 
-            <div class = "product">
-                <img src = "FOTOS/servilletasa.jpg">
-                <div class = "product-txt">
+            <!-- SERVILLETAS/OTROS -->
+            <div class="product" data-categoria="otros">
+                <img src="FOTOS/servilletasa.jpg">
+                <div class="product-txt">
                     <h3>Servilletas</h3>
                     <p>Color Azul(x4)</p>
                     <p class="precio">$18.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
                 </div>
             </div>
 
-            <div class = "product">
-                <img src = "FOTOS/individuales.jpg">
-                <div class = "product-txt">
+            <!-- INDIVIDUALES/OTROS -->
+            <div class="product" data-categoria="otros">
+                <img src="FOTOS/individuales.jpg">
+                <div class="product-txt">
                     <h3>Individuales</h3>
                     <p>(x4) unidades</p>
                     <p class="precio">$28.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
                 </div>
             </div>
 
-            <div class = "product">
-                <img src = "FOTOS/posavasosm.jpg">
-                <div class = "product-txt">
+            <!-- POSAVASOS/OTROS -->
+            <div class="product" data-categoria="otros">
+                <img src="FOTOS/posavasosm.jpg">
+                <div class="product-txt">
                     <h3>Posavasos</h3>
                     <p>(x4) unidades</p>
                     <p class="precio">$12.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="4">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="4">Agregar al carrito</a>
                 </div>
             </div>
 
-            <div class = "product">
-                <img src = "FOTOS/canastitoban.jpg">
-                <div class = "product-txt">
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastitoban.jpg">
+                <div class="product-txt">
                     <h3>Canasto Carolina</h3>
                     <p>Tamaño grande</p>
                     <p class="precio">$15.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="5">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="5">Agregar al carrito</a>
                 </div>
             </div>
 
-            <div class = "product">
-                <img src = "FOTOS/canastog2.jpg">
-                <div class = "product-txt">
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastog2.jpg">
+                <div class="product-txt">
                     <h3>Canasto Tipal</h3>
                     <p>Tamaño XL</p>
                     <p class="precio">$45.000</p>
-                    <a href="#" class = "agregar-carrito btn-2" data-id="6">Agregar al carrito</a>
+                    <a href="#" class="agregar-carrito btn-2" data-id="6">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CARTERAS -->
+            <div class="product" data-categoria="carteras">
+                <img src="FOTOS/carterita2.jpg">
+                <div class="product-txt">
+                    <h3>Cartera Jazmin</h3>
+                    <p>Doble agarre</p>
+                    <p class="precio">$18.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="7">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CARTERAS -->
+            <div class="product" data-categoria="carteras">
+                <img src="FOTOS/carterita3.jpg">
+                <div class="product-txt">
+                    <h3>Cartera Andrea</h3>
+                    <p>Correa larga</p>
+                    <p class="precio">$15.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="8">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/bowlgris.jpg">
+                <div class="product-txt">
+                    <h3>Canasto Edith</h3>
+                    <p>Tamaño pequeño</p>
+                    <p class="precio">$11.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="9">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CARTERAS -->
+            <div class="product" data-categoria="carteras">
+                <img src="FOTOS/carteritallaves.HEIC">
+                <div class="product-txt">
+                    <h3>Cartera Highland</h3>
+                    <p>Tamaño ideal</p>
+                    <p class="precio">$23.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="10">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/bowl3.jpg">
+                <div class="product-txt">
+                    <h3>Canastos Hilda</h3>
+                    <p>(x3) unidades</p>
+                    <p class="precio">$26.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="11">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- SERVILLETAS/OTROS -->
+            <div class="product" data-categoria="otros">
+                <img src="FOTOS/servilletasr.jpg">
+                <div class="product-txt">
+                    <h3>Servilletas</h3>
+                    <p>(x4) unidades</p>
+                    <p class="precio">$18.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="12">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastitafrosas.jpg">
+                <div class="product-txt">
+                    <h3>Canasto Sophie</h3>
+                    <p>Tamaño grande. Flores de un solo color</p>
+                    <p class="precio">$15.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="13">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastitosx4.jpg">
+                <div class="product-txt">
+                    <h3>Canasto Emma</h3>
+                    <p>Tamaño pequeño (x1) unidad</p>
+                    <p class="precio">$10.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="14">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CARTERAS -->
+            <div class="product" data-categoria="carteras">
+                <img src="FOTOS/carteritatrenza.jpg">
+                <div class="product-txt">
+                    <h3>Cartera Tita</h3>
+                    <p>Correa trenzada</p>
+                    <p class="precio">$18.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="15">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CARTERAS -->
+            <div class="product" data-categoria="carteras">
+                <img src="FOTOS/tote.jpg">
+                <div class="product-txt">
+                    <h3>Tote Bag Coco</h3>
+                    <p>Super cavedora</p>
+                    <p class="precio">$35.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="16">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- CANASTOS -->
+            <div class="product" data-categoria="canastos">
+                <img src="FOTOS/canastitopp.jpg">
+                <div class="product-txt">
+                    <h3>Canasto Milo</h3>
+                    <p>Tamaño pequeño</p>
+                    <p class="precio">$10.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="17">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- OTROS -->
+            <div class="product" data-categoria="otros">
+                <img src="FOTOS/apoyador.jpg">
+                <div class="product-txt">
+                    <h3>Apoyador Blanca</h3>
+                    <p>Multiuso</p>
+                    <p class="precio">$12.000</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="18">Agregar al carrito</a>
+                </div>
+            </div>
+
+            <!-- ARREGLOS -->
+            <div class="product" data-categoria="arreglos">
+                <img src="FOTOS/nav2024.jpg">
+                <div class="product-txt">
+                    <h3>ARREGLOS DE MESA</h3>
+                    <p>Personalizado</p>
+                    <p class="precio">Consultar</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="19">Agregar al carrito</a>
                 </div>
             </div>
         </div>
-
-        <div class = "product">
-            <img src = "FOTOS/carterita2.jpg">
-            <div class = "product-txt">
-                <h3>Cartera Jazmin</h3>
-                <p>Doble agarre </p>
-                <p class="precio">$18.000</p>
-                <a href="#" class = "agregar-carrito btn-2" data-id="7">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class = "product">
-            <img src = "FOTOS/carterita3.jpg">
-            <div class = "product-txt">
-                <h3>Cartera Andrea</h3>
-                <p>Correa larga</p>
-                <p class="precio">$15.000</p>
-                <a href="#" class = "agregar-carrito btn-2" data-id="8">Agregar al carrito</a>
-            </div>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/bowlgris.jpg">
-        <div class = "product-txt">
-            <h3>Canasto Edith</h3>
-            <p>Tamaño pequeño </p>
-            <p class="precio">$11.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="9">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/carteritallaves.HEIC">
-        <div class = "product-txt">
-            <h3>Cartera Highland</h3>
-            <p>Tamaño ideal </p>
-            <p class="precio">$23.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="10">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/bowl3.jpg">
-        <div class = "product-txt">
-            <h3>Canastos Trillizas</h3>
-            <p>(x3) unidades</p>
-            <p class="precio">$26.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="11">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/servilletasr.jpg">
-        <div class = "product-txt">
-            <h3>Servilletas</h3>
-            <p>(x4) unidades</p>
-            <p class="precio">$18.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="12">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/canastitafrosas.jpg">
-        <div class = "product-txt">
-            <h3>Canasto Sophie</h3>
-            <p>Tamaño grande. Flores de un solo color</p>
-            <p class="precio">$15.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="13">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/canastitosx4.jpg">
-        <div class = "product-txt">
-            <h3>Canasto Emma</h3>
-            <p> Tamaño pequeño (x1) unidad</p>
-            <p class="precio">$10.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="14">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/carteritatrenza.jpg">
-        <div class = "product-txt">
-            <h3>Cartera Tita</h3>
-            <p>Correa trenzada </p>
-            <p class="precio">$18.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="15">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/tote.jpg">
-        <div class = "product-txt">
-            <h3>Tote Bag Coco</h3>
-            <p>Super cavedora </p>
-            <p class="precio">$35.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="16">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/canastitopp.jpg">
-        <div class = "product-txt">
-            <h3>Canasto Juno</h3>
-            <p>Tamaño pequeño </p>
-            <p class="precio">$10.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="17">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/apoyador.jpg">
-        <div class = "product-txt">
-            <h3>Apoyador Blanca</h3>
-            <p>Multiuso </p>
-            <p class="precio">$12.000</p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="18">Agregar al carrito</a>
-        </div>
-    </div>
-
-    <div class = "product">
-        <img src = "FOTOS/nav2024.jpg">
-        <div class = "product-txt">
-            <h3>ARREGLOS DE MESA</h3>
-            <p>Personalizado </p>
-            <p class="precio"></p>
-            <a href="#" class = "agregar-carrito btn-2" data-id="19">Agregar al carrito</a>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
 
-
     <section class="icons container">
-        
-        <div class = "icon-1">
-            <div class = "icon-img">
-                <img src = "FOTOS/serivlletas.jpeg" alt = "">
+        <div class="icon-1">
+            <div class="icon-img">
+                <img src="FOTOS/serivlletas.jpeg" alt="">
             </div>
-            <div class = "icon-txt">
-                <h3>Lorem ipsum dolor sit, </h3>
-                <p> Lorem ipsum dolor sit, amet consectetur .</p>
-
+            <div class="icon-txt">
+                <h3>Calidad Premium</h3>
+                <p>Productos artesanales de la más alta calidad</p>
             </div>
         </div>
 
-        <div class = "icon-1">
-            <div class = "icon-img">
-                <img src = "FOTOS/servilletas2.jpeg" alt = "">
+        <div class="icon-1">
+            <div class="icon-img">
+                <img src="FOTOS/servilletas2.jpeg" alt="">
             </div>
-            <div class = "icon-txt">
-                <h3>Lorem ipsum dolor sit, </h3>
-                <p> Lorem ipsum dolor sit, amet consectetur .</p>
-
-            </div>
-        </div>
-
-        <div class = "icon-1">
-            <div class = "icon-img">
-                <img src = "FOTOS/totebag.jpeg" alt = "">
-            </div>
-            <div class = "icon-txt">
-                <h3>Lorem ipsum dolor sit, </h3>
-                <p> Lorem ipsum dolor sit, amet consectetur .</p>
-
+            <div class="icon-txt">
+                <h3>Diseño Único</h3>
+                <p>Cada pieza es única y especial</p>
             </div>
         </div>
 
+        <div class="icon-1">
+            <div class="icon-img">
+                <img src="FOTOS/totebag.jpeg" alt="">
+            </div>
+            <div class="icon-txt">
+                <h3>Envíos a todo el país</h3>
+                <p>Recibí tus productos en la comodidad de tu hogar</p>
+            </div>
+        </div>
     </section>
 
-
-    <section class = "blog container">
-
-        <div class = "blog-1">
-            <img src = "FOTOS/logofoto.jpeg">
-            <h3> Blog 1</h3>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laudantium, 
-                amet cum, illum asperiores eaque corrupti nihil, optio fugiat illo 
-                reprehenderit nostrum. Nesciunt esse facilis iste a dolore cupiditate 
-                eos!</p>
+    <section class="blog container">
+        <div class="blog-1">
+            <img src="FOTOS/logofoto.jpeg">
+            <h3>Nuestra Historia</h3>
+            <p>MAB Deco nace de la pasión por crear productos artesanales únicos que transforman espacios en hogares llenos de calidez y estilo.</p>
         </div>
 
-        <div class = "blog-1">
-            <img src = "FOTOS/logofoto.jpeg">
-            <h3> Blog 2</h3>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laudantium, 
-                amet cum, illum asperiores eaque corrupti nihil, optio fugiat illo 
-                reprehenderit nostrum. Nesciunt esse facilis iste a dolore cupiditate 
-                eos!</p>
+        <div class="blog-1">
+            <img src="FOTOS/logofoto.jpeg">
+            <h3>Artesanía Local</h3>
+            <p>Trabajamos con artesanos locales, valorando el trabajo manual y promoviendo técnicas tradicionales de tejido y decoración.</p>
         </div>
 
-        <div class = "blog-1">
-            <img src = "FOTOS/logofoto.jpeg">
-            <h3> Blog 3</h3>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laudantium, 
-                amet cum, illum asperiores eaque corrupti nihil, optio fugiat illo 
-                reprehenderit nostrum. Nesciunt esse facilis iste a dolore cupiditate 
-                eos!</p>
+        <div class="blog-1">
+            <img src="FOTOS/logofoto.jpeg">
+            <h3>Compromiso</h3>
+            <p>Nos comprometemos con la calidad, la atención personalizada y la satisfacción de cada cliente que confía en nosotros.</p>
         </div>
-
     </section>
 
-
-    <footer class = "footer">
-
-        <div class = "footer- content container">
-            <div class = "link">
-                <h3>Lorem</h3>
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Navegación</h3>
                 <ul>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#ofert-section">Categorías</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class = "footer- content container">
-            <div class = "link">
-                <h3>Lorem</h3>
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Categorías</h3>
                 <ul>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
+                    <li><a href="#">Canastos</a></li>
+                    <li><a href="#">Carteras</a></li>
+                    <li><a href="#">Arreglos</a></li>
+                    <li><a href="#">Decoración</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class = "footer- content container">
-            <div class = "link">
-                <h3>Lorem</h3>
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Contacto</h3>
                 <ul>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Email</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class = "footer- content container">
-            <div class = "link">
-                <h3>Lorem</h3>
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Información</h3>
                 <ul>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
-                    <li><a href = "#">Lorem</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
                 </ul>
             </div>
         </div>
-
     </footer>
 
-
-    
-    <script src = "script.js"> </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
