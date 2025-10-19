@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAB Deco</title>
+    <title>MAB Deco - Inicio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="menu container">
-            <a href="#" class="logo">Mab Deco</a>
+            <a href="index.html" class="logo">MAB DECO</a>
             <input type="checkbox" id="menu">
             <label for="menu">
                 <img src="FOTOS/menu.svg" class="menu-icono">
@@ -17,9 +17,9 @@
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#ofert-section">Categorías</a></li>
-                    <li><a href="#">Manifiesto MAB</a></li>
+                    <li><a href="#manifiesto">Manifiesto MAB</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
@@ -34,6 +34,7 @@
                                         <th>Imagen</th>
                                         <th>Nombre</th>
                                         <th>Precio</th>
+                                        <th>Cantidad</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -68,7 +69,7 @@
                 <input type="button" value="Más" class="btn-2" onclick="window.location.href='canastos.html'">
             </div>
         </div>
-    
+
         <div class="ofert-1">
             <div class="ofert-img">
                 <img src="FOTOS/nav20232.HEIC" alt="">  
@@ -78,7 +79,7 @@
                 <input type="button" value="Más" class="btn-2" onclick="window.location.href='arreglos.html'">
             </div>
         </div>
-    
+
         <div class="ofert-1">
             <div class="ofert-img">
                 <img src="FOTOS/carterita.jpg" alt="">  
@@ -89,220 +90,6 @@
             </div>
         </div>
     </section>
-
-    <main class="products container" id="lista-1">
-        <h2>Productos</h2>
-        <div class="product-content">
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastitaflores.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Fresh</h3>
-                    <p>Tamaño grande. Con flores multicolor</p>
-                    <p class="precio">$15.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- SERVILLETAS/OTROS -->
-            <div class="product" data-categoria="otros">
-                <img src="FOTOS/servilletasa.jpg">
-                <div class="product-txt">
-                    <h3>Servilletas</h3>
-                    <p>Color Azul(x4)</p>
-                    <p class="precio">$18.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- INDIVIDUALES/OTROS -->
-            <div class="product" data-categoria="otros">
-                <img src="FOTOS/individuales.jpg">
-                <div class="product-txt">
-                    <h3>Individuales</h3>
-                    <p>(x4) unidades</p>
-                    <p class="precio">$28.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- POSAVASOS/OTROS -->
-            <div class="product" data-categoria="otros">
-                <img src="FOTOS/posavasosm.jpg">
-                <div class="product-txt">
-                    <h3>Posavasos</h3>
-                    <p>(x4) unidades</p>
-                    <p class="precio">$12.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="4">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastitoban.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Carolina</h3>
-                    <p>Tamaño grande</p>
-                    <p class="precio">$15.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="5">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastog2.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Tipal</h3>
-                    <p>Tamaño XL</p>
-                    <p class="precio">$45.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="6">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CARTERAS -->
-            <div class="product" data-categoria="carteras">
-                <img src="FOTOS/carterita2.jpg">
-                <div class="product-txt">
-                    <h3>Cartera Jazmin</h3>
-                    <p>Doble agarre</p>
-                    <p class="precio">$18.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="7">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CARTERAS -->
-            <div class="product" data-categoria="carteras">
-                <img src="FOTOS/carterita3.jpg">
-                <div class="product-txt">
-                    <h3>Cartera Andrea</h3>
-                    <p>Correa larga</p>
-                    <p class="precio">$15.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="8">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/bowlgris.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Edith</h3>
-                    <p>Tamaño pequeño</p>
-                    <p class="precio">$11.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="9">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CARTERAS -->
-            <div class="product" data-categoria="carteras">
-                <img src="FOTOS/carteritallaves.HEIC">
-                <div class="product-txt">
-                    <h3>Cartera Highland</h3>
-                    <p>Tamaño ideal</p>
-                    <p class="precio">$23.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="10">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/bowl3.jpg">
-                <div class="product-txt">
-                    <h3>Canastos Hilda</h3>
-                    <p>(x3) unidades</p>
-                    <p class="precio">$26.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="11">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- SERVILLETAS/OTROS -->
-            <div class="product" data-categoria="otros">
-                <img src="FOTOS/servilletasr.jpg">
-                <div class="product-txt">
-                    <h3>Servilletas</h3>
-                    <p>(x4) unidades</p>
-                    <p class="precio">$18.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="12">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastitafrosas.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Sophie</h3>
-                    <p>Tamaño grande. Flores de un solo color</p>
-                    <p class="precio">$15.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="13">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastitosx4.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Emma</h3>
-                    <p>Tamaño pequeño (x1) unidad</p>
-                    <p class="precio">$10.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="14">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CARTERAS -->
-            <div class="product" data-categoria="carteras">
-                <img src="FOTOS/carteritatrenza.jpg">
-                <div class="product-txt">
-                    <h3>Cartera Tita</h3>
-                    <p>Correa trenzada</p>
-                    <p class="precio">$18.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="15">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CARTERAS -->
-            <div class="product" data-categoria="carteras">
-                <img src="FOTOS/tote.jpg">
-                <div class="product-txt">
-                    <h3>Tote Bag Coco</h3>
-                    <p>Super cavedora</p>
-                    <p class="precio">$35.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="16">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- CANASTOS -->
-            <div class="product" data-categoria="canastos">
-                <img src="FOTOS/canastitopp.jpg">
-                <div class="product-txt">
-                    <h3>Canasto Milo</h3>
-                    <p>Tamaño pequeño</p>
-                    <p class="precio">$10.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="17">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- OTROS -->
-            <div class="product" data-categoria="otros">
-                <img src="FOTOS/apoyador.jpg">
-                <div class="product-txt">
-                    <h3>Apoyador Blanca</h3>
-                    <p>Multiuso</p>
-                    <p class="precio">$12.000</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="18">Agregar al carrito</a>
-                </div>
-            </div>
-
-            <!-- ARREGLOS -->
-            <div class="product" data-categoria="arreglos">
-                <img src="FOTOS/nav2024.jpg">
-                <div class="product-txt">
-                    <h3>ARREGLOS DE MESA</h3>
-                    <p>Personalizado</p>
-                    <p class="precio">Consultar</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="19">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-    </main>
 
     <section class="icons container">
         <div class="icon-1">
@@ -358,56 +145,52 @@
 
     <footer class="footer">
         <div class="footer-content container">
+            <div class="link footer-brand" id="manifiesto">
+                <h2 class="footer-logo">MAB DECO</h2>
+                <p class="footer-description">
+                    Mab Deco nació a comienzos de 2024, cuando por fin pude comprar mi primera máquina de coser propia.<br><br>
+                    Desde entonces, cada creación se convirtió en una forma de unir dos pasiones que siempre me acompañaron: la costura y la decoración.<br><br>
+                    Todo empezó con pequeños detalles tejidos a mano —platos de sitio y posavasos de cestería— que poco a 
+                    poco fueron dando forma a este sueño. Con el tiempo, Mab Deco se transformó en un espacio donde cada pieza refleja 
+                    dedicación, calidez y el amor por lo artesanal.<br><br>
+                    Hoy sigo aprendiendo y creciendo, creando con mis manos objetos que buscan llenar los hogares de encanto, armonía 
+                    y personalidad.
+                </p>
+            </div>
+
             <div class="link">
                 <h3>Navegación</h3>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#ofert-section">Categorías</a></li>
-                    <li><a href="#">Productos</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
-        </div>
 
-        <div class="footer-content container">
             <div class="link">
                 <h3>Categorías</h3>
                 <ul>
-                    <li><a href="#">Canastos</a></li>
-                    <li><a href="#">Carteras</a></li>
-                    <li><a href="#">Arreglos</a></li>
-                    <li><a href="#">Decoración</a></li>
+                    <li><a href="canastos.html">Canastos</a></li>
+                    <li><a href="carteras.html">Carteras</a></li>
+                    <li><a href="arreglos.html">Arreglos</a></li>
                 </ul>
             </div>
-        </div>
 
-        <div class="footer-content container">
-            <div class="link">
-                <h3>Contacto</h3>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">WhatsApp</a></li>
-                    <li><a href="#">Email</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-content container">
             <div class="link">
                 <h3>Información</h3>
                 <ul>
                     <li><a href="#">Sobre nosotros</a></li>
                     <li><a href="#">Envíos</a></li>
-                    <li><a href="#">Devoluciones</a></li>
                     <li><a href="#">Preguntas frecuentes</a></li>
                 </ul>
             </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <p>© 2025 MAB Deco. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
