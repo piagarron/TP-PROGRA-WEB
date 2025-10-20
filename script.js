@@ -231,4 +231,70 @@ window.addEventListener('scroll', function() {
 });
 
 
+// ============================================
+// FIX MENÚ Y CARRITO EN MOBILE
+// ============================================
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix menú hamburguesa
+    const menuCheckbox = document.getElementById('menu');
+    const menuLabel = document.querySelector('label[for="menu"]');
+    const navbar = document.querySelector('.navbar');
+    
+    if (menuLabel && navbar && menuCheckbox) {
+        // Asegurar que funcione el checkbox
+        menuLabel.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const menuLinks = navbar.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 991) {
+                    menuCheckbox.checked = false;
+                }
+            });
+        });
+    }
+    
+    // Fix carrito en mobile
+    const carritoIcon = document.querySelector('#img-carrito');
+    const carritoDiv = document.querySelector('#carrito');
+    const submenu = document.querySelector('.submenu');
+    
+    if (carritoIcon && carritoDiv) {
+        // Detectar si es mobile
+        function isMobile() {
+            return window.innerWidth <= 991;
+        }
+        
+        // En mobile, toggle con click
+        carritoIcon.addEventListener('click', function(e) {
+            if (isMobile()) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (carritoDiv.style.display === 'block') {
+                    carritoDiv.style.display = 'none';
+                } else {
+                    carritoDiv.style.display = 'block';
+                }
+            }
+        });
+        
+        // Cerrar carrito al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (isMobile() && 
+                !carritoDiv.contains(e.target) && 
+                !carritoIcon.contains(e.target)) {
+                carritoDiv.style.display = 'none';
+            }
+        });
+        
+        // Prevenir que se cierre al hacer clic dentro del carrito
+        carritoDiv.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+});
