@@ -82,7 +82,7 @@
     z-index: 1000;
   }
 
-  /* Menú fijo al hacer scroll */
+
   .menu.sticky {
     position: fixed;
     top: 0;
@@ -714,9 +714,6 @@
   }
 }
 
-/* ============================================ */
-/* ESTILOS PARA PÁGINAS DE CATEGORÍAS */
-/* ============================================ */
 
 .header-categoria {
   min-height: 50vh;
@@ -725,7 +722,7 @@
   position: relative;
 }
 
-/* Cambiar color del menú en páginas de categorías */
+
 .header-categoria .logo {
   color: #FFFCFD;
 }
@@ -775,9 +772,6 @@
   font-size: 22px;
 }
 
-/* ============================================ */
-/* ESTILOS DEL CARRITO */
-/* ============================================ */
 
 #lista-carrito thead th {
   text-align: center;
