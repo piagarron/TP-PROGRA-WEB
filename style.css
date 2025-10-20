@@ -43,7 +43,7 @@ img {
   display: flex;
   align-items: center;
   min-height: 88vh;
-  background-image: linear-gradient(rgba(255, 248, 243, 0.5), rgba(255, 248, 243, 0.5)), url('FOTOS/m.HEIC');
+  background-image: linear-gradient(rgba(255, 248, 243, 0.5), rgba(255, 248, 243, 0.5)), url('FOTOS/m.jpg');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -169,6 +169,15 @@ img {
   color: #2C2C2C;
   cursor: pointer;
 }
+
+.menu ul li a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
 
 
 /* Carrito */
@@ -335,7 +344,7 @@ th, td {
 }
 
 
-/* Seccion */
+/* Seccion productos*/
 .ofert {
   padding: 50px 0;
   display: grid;
@@ -701,7 +710,7 @@ th, td {
 }
 
 .header-arreglos {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('FOTOS/nav20232.HEIC');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('FOTOS/nav20232.jpg');
 }
 
 .header-mesa {
@@ -730,7 +739,7 @@ th, td {
 }
 
 
-/* Estilos Arreglos */
+/* Estilo Arreglos */
 .arreglos-info {
   grid-column: 1 / -1;
   text-align: center;
@@ -827,7 +836,6 @@ th, td {
       opacity: 1;
   }
 }
-
 
 
 /* Responsive */
