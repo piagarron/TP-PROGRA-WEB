@@ -928,10 +928,6 @@ th, td {
     gap: 30px;
   }
 
-  .video-background video {
-    display: none;
-  }
-
   .video-overlay {
     background: #fff8f374;
   }
