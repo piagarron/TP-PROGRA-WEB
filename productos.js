@@ -1,7 +1,5 @@
-// ============================================
-// CARRITO DE COMPRAS - PÁGINAS DE PRODUCTOS
-// ============================================
 
+// Carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 document.addEventListener('DOMContentLoaded', function() {

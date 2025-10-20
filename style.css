@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
-/* ============================================ */
-/* RESET Y CONFIGURACIÓN GLOBAL */
-/* ============================================ */
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -40,10 +36,8 @@ img {
   margin: 0 auto;
 }
 
-/* ============================================ */
-/* HEADER */
-/* ============================================ */
 
+/* Header */
 .header {
   display: flex;
   align-items: center;
@@ -96,10 +90,8 @@ img {
                -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* ============================================ */
-/* MENÚ */
-/* ============================================ */
 
+/* Menu */
 .menu {
   position: absolute;
   top: 0;
@@ -177,10 +169,8 @@ img {
   cursor: pointer;
 }
 
-/* ============================================ */
-/* CARRITO */
-/* ============================================ */
 
+/* Carrito */
 .submenu {
   position: relative;
 }
@@ -288,10 +278,8 @@ th, td {
   font-weight: bold;
 }
 
-/* ============================================ */
-/* BOTONES */
-/* ============================================ */
 
+/* Botones */
 .btn-1 {
   display: inline-block;
   padding: 11px 25px;
@@ -345,10 +333,8 @@ th, td {
   background-color: #9A7580;
 }
 
-/* ============================================ */
-/* SECCIÓN DE OFERTAS/CATEGORÍAS */
-/* ============================================ */
 
+/* Seccion */
 .ofert {
   padding: 50px 0;
   display: grid;
@@ -392,10 +378,8 @@ th, td {
   margin-bottom: 15px;
 }
 
-/* ============================================ */
-/* PRODUCTOS */
-/* ============================================ */
 
+/* Productos */
 .products {
   padding: 50px 0;
   text-align: center;
@@ -457,10 +441,8 @@ th, td {
   color: #C97D5D;
 }
 
-/* ============================================ */
-/* ICONOS/CARACTERÍSTICAS */
-/* ============================================ */
 
+/* Iconos */
 .icons {
   padding: 80px 0;
   display: flex;
@@ -510,10 +492,8 @@ th, td {
   line-height: 1.6;
 }
 
-/* ============================================ */
-/* SECCIÓN ABOUT CON VIDEO */
-/* ============================================ */
 
+/* Seccion con video */
 .about-section {
   position: relative;
   padding: 100px 0;
@@ -594,10 +574,8 @@ th, td {
   line-height: 1.7;
 }
 
-/* ============================================ */
-/* FOOTER */
-/* ============================================ */
 
+/* Footer */
 .footer {
   padding: 60px 0 30px;
   background-color: #2C2C2C;
@@ -688,10 +666,8 @@ th, td {
   transform: translateY(-3px);
 }
 
-/* ============================================ */
-/* PÁGINAS DE CATEGORÍAS */
-/* ============================================ */
 
+/* Paginas productos */
 .header-categoria {
   min-height: 50vh;
   background-size: cover;
@@ -748,10 +724,8 @@ th, td {
   font-size: 22px;
 }
 
-/* ============================================ */
-/* ESTILOS ESPECIALES PARA ARREGLOS */
-/* ============================================ */
 
+/* Estilos Arreglos */
 .arreglos-info {
   grid-column: 1 / -1;
   text-align: center;
@@ -788,10 +762,7 @@ th, td {
   color: #999;
 }
 
-/* ============================================ */
-/* RESPONSIVE */
-/* ============================================ */
-
+/* Responsive */
 @media (max-width:991px) {
   * {
     max-width: 100%;
