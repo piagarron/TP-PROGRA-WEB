@@ -22,6 +22,15 @@ function iniciarApp() {
             vaciarCarrito();
         });
     }
+
+    // Botón finalizar compra
+    const btnFinalizar = document.querySelector('#finalizar-compra');
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener('click', function(e) {
+            e.preventDefault();
+            finalizarCompra();
+        });
+    }
     
     // Evento para eliminar productos del carrito
     const tbody = document.querySelector('#lista-carrito tbody');
@@ -275,3 +284,81 @@ window.addEventListener('scroll', function() {
         menu.classList.remove('sticky');
     }
 });
+
+// ============================================
+// FINALIZAR COMPRA
+// ============================================
+function finalizarCompra() {
+    if (carrito.length === 0) {
+        mostrarNotificacion('¡Tu carrito está vacío!', 'info');
+        return;
+    }
+    
+    // Crear overlay oscuro
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        animation: fadeIn 0.3s ease-out;
+    `;
+    
+    // Crear modal de confirmación
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        background: white;
+        padding: 50px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.4s ease-out;
+        max-width: 400px;
+    `;
+    
+    modal.innerHTML = `
+        <div style="font-size: 80px; color: #8B9A7E; margin-bottom: 20px;">✓</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #2C2C2C; margin-bottom: 15px;">¡Muchas gracias por tu compra!</h2>
+        <p style="font-size: 16px; color: #6B6272;">Nos pondremos en contacto contigo pronto</p>
+    `;
+    
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+    
+    // Agregar animaciones si no existen
+    if (!document.querySelector('#modal-animations')) {
+        const style = document.createElement('style');
+        style.id = 'modal-animations';
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideIn {
+                from { transform: scale(0.7); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Vaciar carrito
+    carrito = [];
+    guardarCarrito();
+    mostrarCarrito();
+    actualizarBadgeCarrito();
+    
+    // Cerrar modal después de 3 segundos
+    setTimeout(() => {
+        overlay.style.animation = 'fadeOut 0.3s ease-in';
+        setTimeout(() => {
+            overlay.remove();
+        }, 300);
+    }, 3000);
+}
