@@ -32,8 +32,9 @@ img {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 
@@ -338,7 +339,7 @@ th, td {
 .ofert {
   padding: 50px 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
@@ -703,6 +704,10 @@ th, td {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('FOTOS/nav20232.HEIC');
 }
 
+.header-mesa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('FOTOS/apoyador.jpg');
+}
+
 .header-categoria .header-content {
   padding: 50px 200px;
 }
@@ -763,6 +768,12 @@ th, td {
 }
 
 /* Responsive */
+@media (max-width:1400px) {
+  .ofert {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width:991px) {
   * {
     max-width: 100%;
