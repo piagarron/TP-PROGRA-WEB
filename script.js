@@ -1,11 +1,10 @@
-// ============================================
+
 // CARRITO DE COMPRAS - INDEX.HTML
-// ============================================
 
 // Cargar carrito desde localStorage
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-// Esperar a que cargue todo el HTML
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Página index cargada');
     iniciarApp();
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() {
-    // Botón vaciar carrito
     const btnVaciar = document.querySelector('#vaciar-carrito');
     if (btnVaciar) {
         btnVaciar.addEventListener('click', function(e) {
@@ -23,7 +21,7 @@ function iniciarApp() {
         });
     }
 
-    // Botón finalizar compra
+    
     const btnFinalizar = document.querySelector('#finalizar-compra');
     if (btnFinalizar) {
         btnFinalizar.addEventListener('click', function(e) {
@@ -32,7 +30,7 @@ function iniciarApp() {
         });
     }
     
-    // Evento para eliminar productos del carrito
+    
     const tbody = document.querySelector('#lista-carrito tbody');
     if (tbody) {
         tbody.addEventListener('click', function(e) {
@@ -44,16 +42,13 @@ function iniciarApp() {
     }
 }
 
-// ============================================
 // GUARDAR CARRITO EN LOCALSTORAGE
-// ============================================
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-// ============================================
+
 // CREAR BADGE/CONTADOR EN EL CARRITO
-// ============================================
 function crearBadgeCarrito() {
     const imgCarrito = document.querySelector('#img-carrito');
     
@@ -104,9 +99,7 @@ function actualizarBadgeCarrito() {
     }
 }
 
-// ============================================
 // MOSTRAR NOTIFICACIÓN
-// ============================================
 function mostrarNotificacion(mensaje, tipo = 'success') {
     const notificacion = document.createElement('div');
     notificacion.className = 'notificacion-carrito';
@@ -172,9 +165,8 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     }, 3000);
 }
 
-// ============================================
+
 // READ - MOSTRAR CARRITO
-// ============================================
 function mostrarCarrito() {
     const tbody = document.querySelector('#lista-carrito tbody');
     
@@ -215,9 +207,7 @@ function mostrarCarrito() {
     tbody.appendChild(totalRow);
 }
 
-// ============================================
 // UPDATE - CALCULAR TOTAL
-// ============================================
 function calcularTotal() {
     let total = 0;
     
@@ -230,9 +220,8 @@ function calcularTotal() {
     return total;
 }
 
-// ============================================
+
 // DELETE - ELIMINAR PRODUCTO
-// ============================================
 function eliminarProducto(e) {
     const id = e.target.getAttribute('data-id');
     const productoEliminado = carrito.find(prod => prod.id === id);
@@ -248,9 +237,8 @@ function eliminarProducto(e) {
     actualizarBadgeCarrito();
 }
 
-// ============================================
+
 // DELETE - VACIAR CARRITO
-// ============================================
 function vaciarCarrito() {
     if (carrito.length === 0) {
         mostrarNotificacion('¡El carrito ya está vacío!', 'info');
@@ -264,18 +252,16 @@ function vaciarCarrito() {
     mostrarNotificacion('¡Carrito vaciado!', 'success');
 }
 
-// ============================================
+
 // FUNCIONES ÚTILES
-// ============================================
 function obtenerCantidadTotal() {
     return carrito.reduce((total, producto) => total + producto.cantidad, 0);
 }
 
 console.log('📦 Sistema de Carrito cargado para index.html');
 
-// ============================================
+
 // MENÚ STICKY AL HACER SCROLL
-// ============================================
 window.addEventListener('scroll', function() {
     const menu = document.querySelector('.menu');
     if (window.scrollY > 100) {
@@ -285,9 +271,8 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// ============================================
+
 // FINALIZAR COMPRA
-// ============================================
 function finalizarCompra() {
     if (carrito.length === 0) {
         mostrarNotificacion('¡Tu carrito está vacío!', 'info');
