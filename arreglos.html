@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arreglos - MAB Deco</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header class="header header-categoria header-arreglos">
@@ -12,21 +13,21 @@
             <a href="index.html" class="logo">Mab Deco</a>
             <input type="checkbox" id="menu">
             <label for="menu">
-                <img src="FOTOS/menu.svg" class="menu-icono">
-            </label>
+                <i class="bi bi-list menu-icono"></i>
+                </label>
 
             <nav class="navbar">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html#ofert-section">Categorías</a></li>
+                    <li><a href="index.html#ofert-section">Productos</a></li>
                     <li><a href="#manifiesto">Manifiesto MAB</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
             <div>
                 <ul>
                     <li class="submenu"> 
-                        <img src="FOTOS/shopping-bag.svg" id="img-carrito">
+                        <i class="bi bi-bag" id="img-carrito"></i>
                         <div id="carrito">
                             <table id="lista-carrito">
                                 <thead>
@@ -34,12 +35,16 @@
                                         <th>Imagen</th>
                                         <th>Nombre</th>
                                         <th>Precio</th>
+                                        <th>Cantidad</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
                             </table>
-                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                            <div class="carrito-botones">
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                                <a href="#" id="finalizar-compra" class="btn-2 btn-finalizar">Finalizar Compra</a>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -64,21 +69,11 @@
                 <div class="product-txt">
                     <h3>Arreglo de Mesa Personalizado</h3>
                     <p>Diseño exclusivo para tu evento</p>
-                    <p class="precio">Consultar</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="19">Consultar</a>
+                    <p class="precio">$0</p>
+                    <a href="#" class="agregar-carrito btn-2" data-id="19">Agregar al carrito</a>
                 </div>
             </div>
 
-            <!-- ARREGLO 2 -->
-            <div class="product">
-                <img src="FOTOS/nav20232.HEIC">
-                <div class="product-txt">
-                    <h3>Arreglo Navideño</h3>
-                    <p>Decoración especial para festividades</p>
-                    <p class="precio">Consultar</p>
-                    <a href="#" class="agregar-carrito btn-2" data-id="20">Consultar</a>
-                </div>
-            </div>
 
             <!-- INFO ADICIONAL -->
             <div class="product" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
@@ -93,8 +88,8 @@
                         Contactanos para más información y presupuestos
                     </p>
                     <div style="margin-top: 30px;">
-                        <a href="#" class="btn-1" style="margin: 0 10px;">WhatsApp</a>
-                        <a href="#" class="btn-1" style="margin: 0 10px; background-color: #DCD5E0;">Instagram</a>
+                        <a href="https://wa.me/5493874416418" target="_blank" class="btn-1 btn-whatsapp">WhatsApp</a>
+                        <a href="https://instagram.com/mab_deco_" target="_blank" class="btn-1 btn-instagram">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -133,7 +128,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id = "contacto">
         <div class="footer-content container">
             <div class="link footer-brand" id="manifiesto">
                 <h2 class="footer-logo">MAB DECO</h2>
@@ -149,16 +144,28 @@
             </div>
 
             <div class="link">
+                <h3>Contacto</h3>
+                <div class="social-icons">
+                    <a href="https://instagram.com/mab_deco_" target="_blank" title="Síguenos en Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5493874416418" target="_blank" title="Chateá con nosotros">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="link">
                 <h3>Navegación</h3>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html#ofert-section">Categorías</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="index.html#ofert-section">Productos</a></li>
                 </ul>
             </div>
 
             <div class="link">
-                <h3>Categorías</h3>
+                <h3>Productos</h3>
                 <ul>
                     <li><a href="canastos.html">Canastos</a></li>
                     <li><a href="carteras.html">Carteras</a></li>
