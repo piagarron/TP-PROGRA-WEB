@@ -3,7 +3,6 @@
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ Página de productos cargada');
     iniciarApp();
     crearBadgeCarrito();
     mostrarCarrito();
@@ -88,44 +87,12 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     notificacion.textContent = mensaje;
     document.body.appendChild(notificacion);
     
-    if (!document.querySelector('#notificacion-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notificacion-styles';
-        style.textContent = `
-            .notificacion-carrito {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                color: #2C2C2C;
-                padding: 15px 25px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 9999;
-                font-size: 14px;
-                font-weight: 500;
-                animation: slideIn 0.3s ease-out;
-                min-width: 250px;
-            }
-            .notificacion-success { background: #E8D5D8; }
-            .notificacion-error { background: #C4A4A8; }
-            .notificacion-info { background: #DCD5E0; }
-            @keyframes slideIn {
-                from { transform: translateX(400px); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(400px); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
     setTimeout(() => {
         notificacion.style.animation = 'slideOut 0.3s ease-in';
         setTimeout(() => notificacion.remove(), 300);
     }, 3000);
 }
+
 
 function agregarAlCarrito(e) {
     const producto = e.target.parentElement.parentElement;
@@ -284,17 +251,6 @@ function finalizarCompra() {
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
     
-    if (!document.querySelector('#modal-animations')) {
-        const style = document.createElement('style');
-        style.id = 'modal-animations';
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
     
     carrito = [];
     guardarCarrito();
@@ -315,5 +271,3 @@ window.addEventListener('scroll', function() {
         menu.classList.remove('sticky');
     }
 });
-
-console.log('📦 Sistema de Carrito para productos cargado');
