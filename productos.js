@@ -1,4 +1,3 @@
-
 // Carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -6,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
     crearBadgeCarrito();
     mostrarCarrito();
+    inicializarMenuYCarrito();
 });
 
 function iniciarApp() {
+    // Botones "Agregar al carrito"
     const botonesAgregar = document.querySelectorAll('.agregar-carrito');
     console.log('Botones encontrados:', botonesAgregar.length);
     
@@ -59,9 +60,11 @@ function crearBadgeCarrito() {
     if (!badge) {
         badge = document.createElement('span');
         badge.id = 'carrito-badge';
-        const submenu = imgCarrito.parentElement;
-        submenu.style.position = 'relative';
-        submenu.appendChild(badge);
+        const submenu = imgCarrito.closest('.submenu');
+        if (submenu) {
+            submenu.style.position = 'relative';
+            submenu.appendChild(badge);
+        }
     }
     
     actualizarBadgeCarrito();
@@ -92,7 +95,6 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
         setTimeout(() => notificacion.remove(), 300);
     }, 3000);
 }
-
 
 function agregarAlCarrito(e) {
     const producto = e.target.parentElement.parentElement;
@@ -251,7 +253,6 @@ function finalizarCompra() {
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
     
-    
     carrito = [];
     guardarCarrito();
     mostrarCarrito();
@@ -263,33 +264,22 @@ function finalizarCompra() {
     }, 3000);
 }
 
+// Menú sticky
 window.addEventListener('scroll', function() {
     const menu = document.querySelector('.menu');
-    if (window.scrollY > 100) {
+    if (menu && window.scrollY > 100) {
         menu.classList.add('sticky');
-    } else {
+    } else if (menu) {
         menu.classList.remove('sticky');
     }
 });
 
-
-// ============================================
 // FIX MENÚ Y CARRITO EN MOBILE
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Fix menú hamburguesa
+function inicializarMenuYCarrito() {
     const menuCheckbox = document.getElementById('menu');
-    const menuLabel = document.querySelector('label[for="menu"]');
     const navbar = document.querySelector('.navbar');
     
-    if (menuLabel && navbar && menuCheckbox) {
-        // Asegurar que funcione el checkbox
-        menuLabel.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
+    if (menuCheckbox && navbar) {
         const menuLinks = navbar.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -300,43 +290,104 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Fix carrito en mobile
     const carritoIcon = document.querySelector('#img-carrito');
     const carritoDiv = document.querySelector('#carrito');
-    const submenu = document.querySelector('.submenu');
     
-    if (carritoIcon && carritoDiv) {
-        // Detectar si es mobile
-        function isMobile() {
-            return window.innerWidth <= 991;
-        }
+    if (!carritoIcon || !carritoDiv) {
+        console.error('No se encontró el carrito o el ícono');
+        return;
+    }
+    
+    let carritoAbierto = false;
+    
+    function isMobile() {
+        return window.innerWidth <= 991;
+    }
+    
+    function abrirCarrito() {
+        carritoDiv.style.cssText = `
+            display: block !important;
+            position: fixed !important;
+            top: 90px !important;
+            left: 50% !important;
+            transform: translateX(-50%) scale(0.9) !important;
+            width: 90% !important;
+            max-width: 450px !important;
+            min-height: 250px !important;
+            max-height: 75vh !important;
+            overflow-y: auto !important;
+            padding: 20px !important;
+            z-index: 99999 !important;
+            background: white !important;
+            border-radius: 10px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+            opacity: 0 !important;
+            transition: all 0.3s ease-out !important;
+        `;
         
-        // En mobile, toggle con click
-        carritoIcon.addEventListener('click', function(e) {
-            if (isMobile()) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                if (carritoDiv.style.display === 'block') {
+        carritoDiv.offsetHeight;
+        
+        carritoDiv.style.opacity = '1';
+        carritoDiv.style.transform = 'translateX(-50%) scale(1)';
+        
+        carritoAbierto = true;
+    }
+    
+    function cerrarCarrito() {
+        carritoDiv.style.opacity = '0';
+        carritoDiv.style.transform = 'translateX(-50%) scale(0.9)';
+        
+        setTimeout(() => {
+            carritoDiv.style.display = 'none';
+        }, 300);
+        
+        carritoAbierto = false;
+    }
+    
+    carritoIcon.addEventListener('click', function(e) {
+        if (isMobile()) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (carritoAbierto) {
+                cerrarCarrito();
+            } else {
+                abrirCarrito();
+            }
+        }
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (isMobile() && carritoAbierto) {
+            if (!carritoDiv.contains(e.target) && 
+                !carritoIcon.contains(e.target) &&
+                !e.target.closest('.submenu')) {
+                cerrarCarrito();
+            }
+        }
+    });
+    
+    carritoDiv.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (!isMobile()) {
+                carritoDiv.style.display = '';
+                carritoAbierto = false;
+            } else {
+                if (!carritoAbierto) {
                     carritoDiv.style.display = 'none';
-                } else {
-                    carritoDiv.style.display = 'block';
                 }
             }
-        });
-        
-        // Cerrar carrito al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            if (isMobile() && 
-                !carritoDiv.contains(e.target) && 
-                !carritoIcon.contains(e.target)) {
-                carritoDiv.style.display = 'none';
-            }
-        });
-        
-        // Prevenir que se cierre al hacer clic dentro del carrito
-        carritoDiv.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+        }, 250);
+    });
+    
+    if (isMobile()) {
+        carritoDiv.style.display = 'none';
+        carritoAbierto = false;
     }
-});
+}
