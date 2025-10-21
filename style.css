@@ -783,7 +783,7 @@ th, td {
   }
 }
 
-/* MOBILE Y TABLETS */
+
 @media (max-width:991px) {
   body, html {
     overflow-x: hidden;
@@ -810,7 +810,7 @@ th, td {
     z-index: 10001;
   }
 
-  /* NAVBAR DESLIZABLE */
+  
   .menu .navbar {
     position: fixed;
     top: 0;
@@ -865,7 +865,7 @@ th, td {
     z-index: 10001;
   }
 
-  /* Desactivar hover en mobile */
+  
   .submenu:hover #carrito {
     display: none !important;
   }
@@ -895,7 +895,7 @@ th, td {
     width: 100%;
   }
 
-  /* RESTO RESPONSIVE */
+  
   .header {
     min-height: 60vh;
   }

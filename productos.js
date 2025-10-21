@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() {
+
     // Botones "Agregar al carrito"
     const botonesAgregar = document.querySelectorAll('.agregar-carrito');
     console.log('Botones encontrados:', botonesAgregar.length);
@@ -20,6 +21,7 @@ function iniciarApp() {
         });
     });
     
+    // Boton "Vaciar al carrito"
     const btnVaciar = document.querySelector('#vaciar-carrito');
     if (btnVaciar) {
         btnVaciar.addEventListener('click', function(e) {
@@ -28,6 +30,8 @@ function iniciarApp() {
         });
     }
 
+
+    // Botones "FInalizar compra"
     const btnFinalizar = document.querySelector('#finalizar-compra');
     if (btnFinalizar) {
         btnFinalizar.addEventListener('click', function(e) {
@@ -264,7 +268,7 @@ function finalizarCompra() {
     }, 3000);
 }
 
-// Menú sticky
+
 window.addEventListener('scroll', function() {
     const menu = document.querySelector('.menu');
     if (menu && window.scrollY > 100) {
@@ -274,7 +278,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// FIX MENÚ Y CARRITO EN MOBILE
+
 function inicializarMenuYCarrito() {
     const menuCheckbox = document.getElementById('menu');
     const navbar = document.querySelector('.navbar');
@@ -303,7 +307,13 @@ function inicializarMenuYCarrito() {
     function isMobile() {
         return window.innerWidth <= 991;
     }
-    
+
+
+
+    // NOTA: Utilizo estilos inline en esta función debido a conflictos
+// de especificidad CSS con el hover del carrito en desktop. Los estilos inline
+// son con la unica manera en la que mi carrito aparecia en la funcion mobile sino lo hacia
+// de esta manera mi carrito aparecia fuera de la pantalla o directamente no aparecia.
     function abrirCarrito() {
         carritoDiv.style.cssText = `
             display: block !important;
