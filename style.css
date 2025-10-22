@@ -311,6 +311,53 @@ th, td {
   background-color: #758269;
 }
 
+
+/*Incrementar/ decrementar cant de prod*/
+.cantidad-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-cantidad {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border: 2px solid #8B9A7E;
+  background: white;
+  color: #8B9A7E;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.btn-cantidad:hover {
+  background: #8B9A7E;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-cantidad:active {
+  transform: scale(0.95);
+}
+
+.cantidad-numero {
+  min-width: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+
 .btn-finalizar {
   background-color: #B88B93;
 }
@@ -318,6 +365,8 @@ th, td {
 .btn-finalizar:hover {
   background-color: #9A7580;
 }
+
+
 
 
 /* Seccion productos*/
@@ -895,7 +944,23 @@ th, td {
     width: 100%;
   }
 
-  
+  .cantidad-controls {
+    gap: 5px;
+}
+
+.btn-cantidad {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    font-size: 16px;
+    border-width: 1.5px;
+}
+
+.cantidad-numero {
+    min-width: 20px;
+    font-size: 14px;
+}
+
   .header {
     min-height: 60vh;
   }
@@ -983,4 +1048,15 @@ th, td {
   .products h2 {
     font-size: 35px;
   }
+
+  .btn-cantidad {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    font-size: 14px;
+}
+
+.cantidad-numero {
+    font-size: 13px;
+}
 }

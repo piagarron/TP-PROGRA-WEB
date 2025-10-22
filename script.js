@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     inicializarMenuYCarrito();
 });
 
+//Funcion para los botones
 function iniciarApp() {
     const btnVaciar = document.querySelector('#vaciar-carrito');
     if (btnVaciar) {
@@ -28,13 +29,22 @@ function iniciarApp() {
     const tbody = document.querySelector('#lista-carrito tbody');
     if (tbody) {
         tbody.addEventListener('click', function(e) {
+            e.preventDefault();
+            
             if (e.target.classList.contains('borrar-producto')) {
-                e.preventDefault();
-                eliminarProducto(e);
+                const id = e.target.getAttribute('data-id');
+                eliminarProducto(id);
+            } else if (e.target.classList.contains('incrementar')) {
+                const id = e.target.getAttribute('data-id');
+                incrementarProducto(id);
+            } else if (e.target.classList.contains('decrementar')) {
+                const id = e.target.getAttribute('data-id');
+                decrementarProducto(id);
             }
         });
     }
 }
+
 
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -85,6 +95,47 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
     }, 3000);
 }
 
+
+//FUncion incrementar cant de un producto en el carrito
+function incrementarProducto(id) {
+    carrito = carrito.map(prod => {
+        if (prod.id === id) {
+            prod.cantidad++;
+        }
+        return prod;
+    });
+    mostrarNotificacion('¡Cantidad actualizada!', 'success');
+    guardarCarrito();
+    mostrarCarrito();
+    actualizarBadgeCarrito();
+}
+
+// Func decrementar cantidad de un producto
+function decrementarProducto(id) {
+    const producto = carrito.find(prod => prod.id === id);
+    
+    if (!producto) return;
+    
+    if (producto.cantidad > 1) {
+        carrito = carrito.map(prod => {
+            if (prod.id === id) {
+                prod.cantidad--;
+            }
+            return prod;
+        });
+        mostrarNotificacion('¡Cantidad actualizada!', 'success');
+    } else {
+        
+        carrito = carrito.filter(prod => prod.id !== id);
+        mostrarNotificacion('¡Producto eliminado!', 'error');
+    }
+    
+    guardarCarrito();
+    mostrarCarrito();
+    actualizarBadgeCarrito();
+}
+
+
 function mostrarCarrito() {
     const tbody = document.querySelector('#lista-carrito tbody');
     if (!tbody) return;
@@ -102,7 +153,13 @@ function mostrarCarrito() {
             <td><img src="${producto.imagen}"></td>
             <td>${producto.titulo}</td>
             <td>${producto.precio}</td>
-            <td>${producto.cantidad}</td>
+            <td>
+                <div class="cantidad-controls">
+                    <button class="btn-cantidad decrementar" data-id="${producto.id}">−</button>
+                    <span class="cantidad-numero">${producto.cantidad}</span>
+                    <button class="btn-cantidad incrementar" data-id="${producto.id}">+</button>
+                </div>
+            </td>
             <td><a href="#" class="borrar-producto" data-id="${producto.id}">✕</a></td>
         `;
         tbody.appendChild(row);
@@ -118,6 +175,7 @@ function mostrarCarrito() {
     `;
     tbody.appendChild(totalRow);
 }
+
 
 function calcularTotal() {
     let total = 0;
@@ -138,8 +196,7 @@ function calcularTotal() {
     return total;
 }
 
-function eliminarProducto(e) {
-    const id = e.target.getAttribute('data-id');
+function eliminarProducto(id) {
     const productoEliminado = carrito.find(prod => prod.id === id);
     
     carrito = carrito.filter(producto => producto.id !== id);
@@ -152,6 +209,8 @@ function eliminarProducto(e) {
     mostrarCarrito();
     actualizarBadgeCarrito();
 }
+
+
 
 function vaciarCarrito() {
     if (carrito.length === 0) {
